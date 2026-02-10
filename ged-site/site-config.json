@@ -1,0 +1,178 @@
+{
+  "project_metadata": {
+    "name": "Groupe & Découverte - Hub Institutionnel",
+    "version": "3.0 B2B Commando",
+    "target_audience": "Directeurs MECS, Référents ASE, Éducateurs PJJ, Mairies",
+    "tone": "Direct, Professionnel, Rassurant, 'Orienté Solution'",
+    "objective": "Devenir le réflexe n°1 pour les placements complexes."
+  },
+
+  "design_system": {
+    "colors": {
+      "primary_action": "#FAB231",
+      "brand_identity": "#2E4053",
+      "text_dark": "#2E4053",
+      "text_light": "#5D6D7E",
+      "background_page": "#FFFFFF",
+      "background_alt": "#F8F9FA"
+    }
+  },
+
+  "navigation": {
+    "header_links": [
+      { "label": "Nos Solutions", "anchor": "#solutions" },
+      { "label": "Ingénierie Sociale", "anchor": "#ingenierie" },
+      { "label": "Espace Partenaires", "anchor": "#partenaires" }
+    ],
+    "contact_bar": {
+      "whatsapp": { "label": "Ligne Éducateurs (Réponse <15min)", "action": "https://wa.me/336XXXXXXXX" },
+      "phone": { "label": "Permanence Siège", "number": "04 78 XX XX XX", "action": "tel:+33478XXXXXX" },
+      "calendly": { "label": "RDV Visio (15min)", "action": "https://calendly.com/groupeetdecouverte/15min" }
+    }
+  },
+
+  "smart_form_component": {
+    "title": "Diagnostic de Placement Express",
+    "style": "Multi-step Modal (Typeform-like)",
+    "trigger_button": "DEMANDE INDIVIDUALISÉE",
+    "steps_config": [
+      {
+        "step_id": "pro_identity",
+        "label": "Votre Structure",
+        "fields": [
+          { "id": "struct_type", "type": "select", "options": ["ASE", "MECS", "PJJ", "Mairie", "CSE", "Autre"] },
+          { "id": "struct_name", "type": "text", "placeholder": "Nom de l'établissement", "label": "Nom de la structure" },
+          { "id": "pro_function", "type": "text", "placeholder": "Votre fonction (ex: Éducateur)", "label": "Votre Fonction" }
+        ]
+      },
+      {
+        "step_id": "youth_profile",
+        "label": "Le Besoin",
+        "fields": [
+          {
+            "id": "service_level",
+            "type": "card_select",
+            "options": [
+              { "value": "INCLUSION", "desc": "Collectif classique", "icon": "👥" },
+              { "value": "RENFORCE", "desc": "Vigilance accrue", "icon": "🛡️" },
+              { "value": "RUPTURE", "desc": "Distanciation individuelle", "icon": "🏔️" }
+            ]
+          },
+          { "id": "age", "type": "number", "label": "Âge du jeune", "placeholder": "Ex: 14" }
+        ]
+      },
+      {
+        "step_id": "timing",
+        "label": "L'Urgence",
+        "fields": [
+          { "id": "deadline", "type": "radio", "options": ["Départ Immédiat (< 72h)", "Prochaines Vacances", "Prospective"] },
+          { "id": "alerts", "type": "textarea", "label": "Points de vigilance (facultatif)", "max_chars": 100, "placeholder": "Ex: Fugueur, TDAH, Violence..." }
+        ]
+      },
+      {
+        "step_id": "contact",
+        "label": "On vous rappelle",
+        "fields": [
+          { "id": "contact_name", "type": "text", "label": "Nom & Prénom", "required": true },
+          { "id": "contact_phone", "type": "tel", "label": "Mobile Pro (Direct)", "required": true },
+          { "id": "contact_email", "type": "email", "label": "Email Pro", "required": true }
+        ],
+        "submit_label": "VÉRIFIER LA FAISABILITÉ →"
+      }
+    ]
+  },
+
+  "pages_content": {
+    "home_section": {
+      "hero": {
+        "headline": "Sécurisez vos placements éducatifs.",
+        "subheadline": "Le partenaire de confiance des travailleurs sociaux. Du placement simple au séjour de rupture.",
+        "trust_badges": ["0 EXCLUSION (Garantie)", "CONFORMITE ASE/PJJ", "ASTREINTE 24/7"],
+        "cta_primary": "DÉPOSER UNE DEMANDE (Réponse 48h)",
+        "cta_secondary": "Télécharger la plaquette Pro"
+      },
+      "solutions_filter": [
+        {
+          "id": "inclusion",
+          "title": "INCLUSION",
+          "desc": "Socialisation en milieu ordinaire",
+          "icon": "users"
+        },
+        {
+          "id": "renforce",
+          "title": "RENFORCÉ",
+          "desc": "Cadre resserré, médiation quotidienne",
+          "icon": "shield"
+        },
+        {
+          "id": "rupture",
+          "title": "RUPTURE",
+          "desc": "Dispositif 1 pour 1 (Distanciation)",
+          "icon": "mountain"
+        }
+      ]
+    },
+
+    "engineering_section": {
+      "title": "Une ingénierie sociale, pas de la consommation.",
+      "intro": "Nous ne vendons pas des 'colos', nous construisons des parcours adaptés à vos jeunes.",
+      "pillars": [
+        {
+          "title": "Tiers de Confiance",
+          "desc": "Nous auditons technique et sécurité. Vous gardez la main sur l'éducatif."
+        },
+        {
+          "title": "Grille d'Intervention",
+          "desc": "Ratio d'encadrement adapté. Bilan écrit systématique."
+        },
+        {
+          "title": "Observatoire d'Impact",
+          "desc": "Mesure de l'apaisement et de la remobilisation (Data interne)."
+        }
+      ]
+    },
+
+    "portfolio_section": {
+      "title": "Catalogue de Solutions",
+      "subtitle": "Sélection par objectifs éducatifs",
+      "examples": [
+        {
+          "name": "MX RIDER ACADEMY",
+          "goal": "Remobilisation par la mécanique & Valorisation",
+          "capacity": "Max 2 profils ASE / session",
+          "location": "Haute-Savoie (74)"
+        },
+        {
+          "name": "CORSICA WILD TRIP",
+          "goal": "Gestion de la frustration & Itinérance",
+          "capacity": "Max 8 jeunes (Groupe restreint)",
+          "location": "Corse (20)"
+        },
+        {
+          "name": "ALPINE SKY CAMP",
+          "goal": "Dépassement de soi & Cadre collectif",
+          "capacity": "Inclusion milieu ordinaire",
+          "location": "Savoie (73)"
+        }
+      ]
+    },
+
+    "pro_space_section": {
+      "title": "Espace Professionnel",
+      "blocks": [
+        {
+          "title": "Déjà Partenaire ?",
+          "desc": "Suivez vos jeunes en temps réel sur le portail sécurisé.",
+          "cta": "CONNEXION PORTAIL",
+          "link": "https://app.groupeetdecouverte.fr/login"
+        },
+        {
+          "title": "Nouvelle Convention ?",
+          "desc": "Mairies, MECS, AEMO : Habilitez votre structure en 48h.",
+          "cta": "DEVENIR PARTENAIRE",
+          "link": "#contact"
+        }
+      ]
+    }
+  }
+}

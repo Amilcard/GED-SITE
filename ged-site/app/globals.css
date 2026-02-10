@@ -4,185 +4,72 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 210 29% 25%; /* #2E4053 (Primary Text) */
+
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 210 29% 25%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
-    --primary: 16 100% 61%;
+    --popover-foreground: 210 29% 25%;
+
+    --primary: 210 29% 25%; /* #2E4053 Dark Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 208 54% 36%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 210 17% 98%;
-    --muted-foreground: 215 25% 27%;
-    --accent: 208 54% 36%;
+
+    --secondary: 43 96% 59%; /* #FAB231 Gold */
+    --secondary-foreground: 210 29% 25%;
+
+    --muted: 210 20% 98%; /* #F8F9FA */
+    --muted-foreground: 220 9% 46%; /* #6B7280 */
+
+    --accent: 164 100% 41%; /* #00D49C Teal */
     --accent-foreground: 0 0% 100%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 17% 98%;
-    --input: 210 17% 98%;
-    --ring: 16 100% 61%;
+
+    --border: 220 13% 91%; /* #E5E7EB */
+    --input: 220 13% 91%;
+    --ring: 43 96% 59%; /* Gold Focus */
+
     --radius: 24px;
   }
 
-  * {
-    @apply border-border;
-  }
-
+  /* RESET & BASE STYLES */
   body {
-    @apply bg-brand-light text-brand-dark antialiased;
+    @apply bg-background text-primary antialiased font-sans leading-relaxed selection:bg-secondary selection:text-primary;
   }
 
-  /* STRICT TYPOGRAPHY SCALE (Design System Vitrine) */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight text-primary;
+  }
+
+  /* SPECIFIC CORPORATE HEADINGS */
   h1 {
-    @apply text-5xl md:text-6xl font-bold leading-tight;
-    max-width: 70ch;
+    @apply text-4xl md:text-5xl lg:text-7xl font-extrabold text-primary;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl font-bold leading-tight;
-    max-width: 65ch;
+    @apply text-3xl md:text-4xl text-primary font-bold;
   }
 
-  h3 {
-    @apply text-2xl md:text-3xl font-semibold leading-snug;
-    max-width: 60ch;
-  }
-
-  p {
-    @apply text-base md:text-lg leading-relaxed;
-    max-width: 65ch;
-  }
-
-  small {
-    @apply text-sm leading-normal;
-  }
-
-  /* Smooth scrolling */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Focus styles for accessibility (P1-4: Orange primary) */
-  *:focus-visible {
-    outline: 2px solid #FF6B35;
-    outline-offset: 2px;
-  }
-
-  /* Selection styles (P1-4: Orange primary) */
-  ::selection {
-    background-color: #FF6B35;
-    color: white;
-  }
-
-  /* Scrollbar styling (LOT GRAPHISME 1: Subtle gray instead of orange) */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #F8F9FA;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #94A3B8;
-  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  /* COMPONENTS PRESETS */
+  .btn-pill {
+    @apply rounded-pill px-6 py-2.5 font-bold transition-all duration-200 active:scale-95 text-sm uppercase tracking-wider;
   }
 
-  /* iOS Safe Area padding */
-  .pb-safe {
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+  .btn-primary {
+    @apply bg-secondary text-primary hover:bg-secondary/90 shadow-sm;
   }
 
-  /* Animation for bottom sheet */
-  .animate-in {
-    animation-duration: 300ms;
-    animation-fill-mode: both;
+  .btn-secondary {
+    @apply bg-white border border-border text-primary hover:bg-muted font-bold;
   }
 
-  .slide-in-from-bottom {
-    animation-name: slideInFromBottom;
+  .card-corporate {
+    @apply bg-white border border-border rounded-brand p-6 shadow-sm hover:border-secondary/50 transition-colors;
   }
-
-  .slide-in-from-top {
-    animation-name: slideInFromTop;
-  }
-
-  /* Micro-animations buttons */
-  .btn-hover-scale {
-    @apply transition-transform duration-200 active:scale-95;
-  }
-
-  .btn-hover-lift {
-    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
-  }
-
-  /* Fade in animation */
-  .fade-in {
-    animation-name: fadeIn;
-    animation-duration: 200ms;
-    animation-fill-mode: forwards;
-  }
-
-  /* Scale in animation */
-  .scale-in {
-    animation-name: scaleIn;
-    animation-duration: 200ms;
-    animation-fill-mode: forwards;
-  }
-}
-
-@keyframes slideInFromBottom {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInFromTop {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-[data-hydration-error] {
-  display: none !important;
 }
